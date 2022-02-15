@@ -37,11 +37,10 @@ public class EventSim {
 
 
     /**
-     * Draw a random number in the interval min-max
-     *
-     * @param min
-     * @param max
-     * @return
+     * @param min for the random number
+     * @param max for the random number
+     * @return random number in the interval min-max
+     * TODO: Consider removing this wrapping.
      */
     public static int nextInt(int min, int max) {
         return min + theSim.random.nextInt(max - min);
