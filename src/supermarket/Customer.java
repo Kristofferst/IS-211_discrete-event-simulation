@@ -32,10 +32,15 @@ public class Customer {
 
     public Customer(SuperMarket shop, int i) {
         this.shop = shop;
-        name = "Cust" + i;
+        name = this.getClass().getSimpleName() + "_" + i;
         beginShoppingTime = i;
         numProducts = EventSim.nextInt(MIN_PRODUCTS, MAX_PRODUCTS);
         shoppingDuration = EventSim.nextInt(MIN_SHOP_TIME, MAX_SHOP_TIME);
         endShoppingTime = beginShoppingTime + shoppingDuration;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }
