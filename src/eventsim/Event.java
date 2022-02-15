@@ -7,21 +7,17 @@ package eventsim;
  * @author evenal
  */
 public abstract class Event {
-    /**
-     * When the event happens
-     */
-    int time;
+    int timeEventHappens;
 
 
-    public Event(int time) {
-        this.time = time;
+    public Event(int timeOfEvent) {
+        this.timeEventHappens = timeOfEvent;
     }
 
 
-    public int getTime() {
-        return time;
+    public int getTimeEventHappens() {
+        return timeEventHappens;
     }
-
 
     /**
      * Make the changes to the simulated supermarket that happens as a

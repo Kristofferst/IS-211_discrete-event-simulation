@@ -81,7 +81,7 @@ public class EventSim {
     public void run() {
         while (!eventQueue.isEmpty()) {
             Event e = eventQueue.poll();
-            clock = e.getTime();
+            clock = e.getTimeEventHappens();
             addEvent(e.happen());
 
             System.err.format("Time %d: Processing %s. Event queue:\n", clock, e.toString());

@@ -29,7 +29,7 @@ public class EndShoppingEvent extends Event {
 
     @Override
     public String toString() {
-        return "EndShoppingEvent{" + getTime() + " cust=" + customer.name
+        return "EndShoppingEvent{" + getTimeEventHappens() + " cust=" + customer.name
                 + " " + customer.shoppingDuration + '}';
     }
 
