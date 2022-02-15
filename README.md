@@ -1,3 +1,5 @@
+# Assigment in [IS-211-1 Algorithms and Data Structures](https://www.uia.no/en/studieplaner/topic/IS-211-1)
+
 # TASK : Discrete event simulation
 
 Discrete event simulation models a domain as a sequence of events that instantaneously changes the state of the domain. This differs from continuous simulation, which is used in ship and flight simulators, and a large number of games.
@@ -47,7 +49,3 @@ The phrase "...a short time later" means that an event should happen later than 
 ### Online resources
 
 *   [https://en.wikipedia.org/wiki/Discrete_event_simulation](https://en.wikipedia.org/wiki/Discrete_event_simulation)
-
-### Hand in
-
-Hand in your programming project as Github repository. The deadline is specified in the course plan and in the hand-in folder.
