@@ -19,9 +19,7 @@ public class EventSim {
     /* The queue of events - those that happen earliest first */
     PriorityQueue<Event> eventQueue;
 
-    /**
-     * The "current" time
-     */
+    // The "current" time
     int clock;
     Random random;
 
@@ -54,20 +52,19 @@ public class EventSim {
 
 
     /**
-     * Prepare the simulation by adding a list of "start" events
-     *
-     * @param initialEvents
+     * Prepare the simulation
+     * @param initialEvents a list of "start" events
      */
     public void setup(List<Event> initialEvents) {
-        for (Event e : initialEvents)
-            eventQueue.add(e);
+        for (Event event : initialEvents)
+            eventQueue.add(event);
     }
 
 
-    public void addEvent(Event e) {
-        if (null == e)
+    public void addEvent(Event event) {
+        if (null == event)
             return;
-        eventQueue.add(e);
+        eventQueue.add(event);
     }
 
 
@@ -79,13 +76,13 @@ public class EventSim {
      */
     public void run() {
         while (!eventQueue.isEmpty()) {
-            Event e = eventQueue.poll();
-            clock = e.getTimeEventHappens();
-            addEvent(e.happen());
+            Event event = eventQueue.poll();
+            clock = event.getTimeEventHappens();
+            addEvent(event.happen());
 
-            System.err.format("Time %d: Processing %s. \n    Event queue:\n", clock, e.toString());
-            for (Event qe : eventQueue)
-                System.err.println("     " + qe);
+            System.err.format("Time %d: Processing %s. \n    Event queue:\n", clock, event);
+            for (Event queuedEvent : eventQueue)
+                System.err.println("     " + queuedEvent);
         }
     }
 }
