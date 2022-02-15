@@ -28,4 +28,6 @@ public abstract class Event {
      * of events, if an event could cause more than one event to happen later.
      */
     public abstract Event happen();
+
+    public abstract String toString();
 }
