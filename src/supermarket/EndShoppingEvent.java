@@ -26,10 +26,10 @@ public class EndShoppingEvent extends Event {
         return null;
     }
 
-
+    //TODO: Remove printing of TimeEventHappens - unless it gets useful later.
     @Override
     public String toString() {
-        return "EndShoppingEvent{" + getTimeEventHappens() + " cust=" + customer.name
+        return this.getClass().getSimpleName()+ "{ TimeEventHappens:" + getTimeEventHappens() + " " + customer
                 + " " + customer.shoppingDuration + '}';
     }
 
