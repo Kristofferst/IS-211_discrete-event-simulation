@@ -12,11 +12,6 @@ import java.util.List;
  */
 public class SuperMarket {
 
-    public static void main(String[] arts) {
-        SuperMarket supern = new SuperMarket();
-        supern.startSim();
-    }
-
     public static final int NUM_CHECKOUTS = 1;
     public static final int NUM_CUSTOMERS = 4;
 
