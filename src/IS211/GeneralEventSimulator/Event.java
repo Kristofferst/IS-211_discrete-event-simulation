@@ -1,4 +1,4 @@
-package eventsim;
+package IS211.GeneralEventSimulator;
 
 
 /**

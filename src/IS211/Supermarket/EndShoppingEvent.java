@@ -1,7 +1,7 @@
-package supermarket;
+package IS211.Supermarket;
 
-import eventsim.Event;
-import eventsim.EventSim;
+import IS211.GeneralEventSimulator.Event;
+import IS211.GeneralEventSimulator.EventSim;
 
 
 /**

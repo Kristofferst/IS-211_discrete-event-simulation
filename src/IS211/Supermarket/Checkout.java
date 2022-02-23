@@ -1,4 +1,4 @@
-package supermarket;
+package IS211.Supermarket;
 
 
 /**
