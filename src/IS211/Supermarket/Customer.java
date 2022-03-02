@@ -20,14 +20,16 @@ public class Customer {
     SuperMarket shop;
     String name;
 
-    int beginShoppingTime;
-    int shoppingDuration;
-    int numProducts;
+    int beginShoppingTime; // Set by random
+    int shoppingDuration; // Set by random
+    int numProducts; // Set by random
     int endShoppingTime;
-    int queueWaitDuration;
-    int checkoutTime;
-    int checkoutDuration;
+    int queueWaitDuration; // Add duration of overlap between this costumer and previous ones
+    int checkoutTime; // Sum of endShoppingTime and wait
+    int checkoutDuration; // Product of product num and time pr + constant. (Checkout and customer)
     int leaveTime;
+
+    Checkout checkout;
 
 
     public Customer(SuperMarket shop, int i) {
@@ -42,5 +44,13 @@ public class Customer {
     @Override
     public String toString() {
         return name;
+    }
+
+    public void selectCheckout() {
+        checkout = shop.getCheckoutByShortestQueue();
+    }
+
+    public Checkout getCheckout() {
+        return checkout;
     }
 }

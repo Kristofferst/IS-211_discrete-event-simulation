@@ -21,6 +21,11 @@ public class EventSim {
 
     // The "current" time
     int clock;
+
+    public Random getRandom() {
+        return random;
+    }
+
     Random random;
 
 
@@ -56,8 +61,7 @@ public class EventSim {
      * @param initialEvents a list of "start" events
      */
     public void setup(List<Event> initialEvents) {
-        for (Event event : initialEvents)
-            eventQueue.add(event);
+        eventQueue.addAll(initialEvents);
     }
 
 
@@ -80,9 +84,9 @@ public class EventSim {
             clock = event.getTimeEventHappens();
             addEvent(event.happen());
 
-            System.err.format("Time %d: Processing %s. \n    Event queue:\n", clock, event);
+            System.err.format("Time %d: %s \n    Event queue:\n", clock, event);
             for (Event queuedEvent : eventQueue)
-                System.err.println("     " + queuedEvent);
+                System.err.println("     "+ queuedEvent.getTimeEventHappens()+": " + queuedEvent);
         }
     }
 }

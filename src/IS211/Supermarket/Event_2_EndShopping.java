@@ -10,11 +10,11 @@ import IS211.GeneralEventSimulator.EventSim;
  *
  * @author evenal
  */
-public class EndShoppingEvent extends Event {
-    Customer customer;
+public class Event_2_EndShopping extends Event {
+    final Customer customer;
 
 
-    public EndShoppingEvent(Customer customer) {
+    public Event_2_EndShopping(Customer customer) {
         super(EventSim.getClock() + customer.shoppingDuration);
         this.customer = customer;
     }
@@ -22,8 +22,8 @@ public class EndShoppingEvent extends Event {
 
     @Override
     public Event happen() {
-        customer.leaveTime = customer.checkoutTime + customer.checkoutDuration;
-        return null;
+        customer.selectCheckout();
+        return new Event_3_CheckoutEnterQueue(customer);
     }
 
     //TODO: Remove printing of TimeEventHappens - unless it gets useful later.

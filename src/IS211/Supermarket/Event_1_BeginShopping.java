@@ -8,11 +8,11 @@ import IS211.GeneralEventSimulator.Event;
  *
  * @author evenal
  */
-public class BeginShoppingEvent extends Event {
+public class Event_1_BeginShopping extends Event {
     Customer customer;
 
 
-    public BeginShoppingEvent(Customer customer) {
+    public Event_1_BeginShopping(Customer customer) {
         super(customer.beginShoppingTime);
         this.customer = customer;
     }
@@ -20,13 +20,11 @@ public class BeginShoppingEvent extends Event {
 
     @Override
     public Event happen() {
-        return new EndShoppingEvent(customer);
+        return new Event_2_EndShopping(customer);
     }
 
     @Override
     public String toString() {
-        return "BeginShoppingEvent{" +
-                "customer=" + customer +
-                '}';
+        return ""+customer +" starts shopping";
     }
 }
