@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class SuperMarket {
 
-    public static final int NUM_CHECKOUTS = 5;
+    public static final int NUM_CHECKOUTS = 1;
     public static final int NUM_CUSTOMERS = 5;
 
     Checkout[] checkouts;

@@ -28,7 +28,7 @@ public class Event_3_CheckoutEnterQueue extends Event {
     @Override
     public String toString() {
         if(checkout==null)
-            return customer +" enters queue";
+            return customer +" will enter queue";
         else
             return customer + " enters queue for "+checkout;
     }

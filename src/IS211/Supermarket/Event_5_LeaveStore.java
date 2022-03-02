@@ -20,6 +20,6 @@ public class Event_5_LeaveStore extends Event {
 
     @Override
     public String toString() {
-        return customer +" leaves store";
+        return customer +" is done checking out and leaves store";
     }
 }
