@@ -14,7 +14,6 @@ public class Event_4_Checkout extends Event {
 
     @Override
     public Event happen() {
-        customer.leaveTime = customer.checkoutTime + customer.checkoutDuration;
         return new Event_5_LeaveStore(customer);
     }
 

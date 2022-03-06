@@ -16,6 +16,11 @@ public class Checkout {
     public static final int PAY_DURATION = 10;
     //total time for checkout = PAY_DURATION + PROD_DURATION*customer.numProd
     private Deque<Customer> customerQueue;
+    private int totalQueueWaitTime;
+    private int greatestQueueWaitTime;
+    private int greatestQueueSize;
+    private int servedCustomers;
+    private int sizeOnEntry;
 
     SuperMarket shop;
     String name;
@@ -30,6 +35,31 @@ public class Checkout {
     public Queue<Customer> getCustomerQueue() {
         return customerQueue;
     }
+
+    public void addCustomerToQueue(Customer customer){
+        customerQueue.add(customer);
+        setIfGreatestQueueSize(customerQueue.size());
+        sizeOnEntry += customerQueue.size();
+    }
+
+    private void setIfGreatestQueueSize(int size) {
+        if(size > greatestQueueSize)
+            greatestQueueSize = size;
+    }
+
+    private void setIfGreatestQueueWaitTime(int queueWaitDuration) {
+        if(queueWaitDuration > greatestQueueWaitTime)
+            greatestQueueWaitTime = queueWaitDuration;
+    }
+
+    public void serveCustomer(Customer customer){
+        customerQueue.remove(customer);
+        servedCustomers++;
+        setIfGreatestQueueWaitTime(customer.queueWaitDuration);
+        totalQueueWaitTime += customer.queueWaitDuration;
+    }
+
+
 
     public int calculateCheckoutDuration(int numProducts){
         return PROD_DURATION*numProducts+PAY_DURATION;
@@ -47,5 +77,25 @@ public class Checkout {
         }
         else
             return customerAheadInQueue.leaveTime - customer.endShoppingTime;
+    }
+
+    public String statsAsString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("totalQueueWaitTime: ");
+        stringBuilder.append(totalQueueWaitTime);
+        stringBuilder.append(System.lineSeparator());
+        stringBuilder.append("greatestQueueWaitTime: ");
+        stringBuilder.append(greatestQueueWaitTime);
+        stringBuilder.append(System.lineSeparator());
+        stringBuilder.append("averageQueueWaitTime: ");
+        stringBuilder.append(totalQueueWaitTime/servedCustomers);
+        stringBuilder.append(System.lineSeparator());
+        stringBuilder.append("greatestQueueSize: ");
+        stringBuilder.append(greatestQueueSize);
+        stringBuilder.append(System.lineSeparator());
+        stringBuilder.append("averageSizeOnEntry: ");
+        stringBuilder.append(sizeOnEntry/servedCustomers);
+        stringBuilder.append(System.lineSeparator());
+        return stringBuilder.toString();
     }
 }

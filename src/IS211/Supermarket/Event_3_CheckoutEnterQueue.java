@@ -7,7 +7,7 @@ public class Event_3_CheckoutEnterQueue extends Event {
     Checkout checkout;
 
     public Event_3_CheckoutEnterQueue(Customer customer) {
-        super(customer.endShoppingTime);
+        super(customer.endShoppingTime+1);
         this.customer = customer;
     }
 
@@ -18,9 +18,9 @@ public class Event_3_CheckoutEnterQueue extends Event {
         checkout = customer.getCheckout();
         customer.checkoutDuration = checkout.calculateCheckoutDuration(customer.numProducts);
         customer.checkoutTime = customer.endShoppingTime+1+checkout.calculateQueueDelay(customer);
-        customer.leaveTime = customer.checkoutTime + customer.checkoutDuration;
+        customer.leaveTime = customer.checkoutTime + customer.checkoutDuration+1;
         customer.queueWaitDuration = checkout.calculateQueueDelay(customer);
-        checkout.getCustomerQueue().add(customer);
+        checkout.addCustomerToQueue(customer);
 
         return new Event_4_Checkout(customer, checkout);
     }

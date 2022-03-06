@@ -12,8 +12,8 @@ import java.util.List;
  */
 public class SuperMarket {
 
-    public static final int NUM_CHECKOUTS = 1;
-    public static final int NUM_CUSTOMERS = 5;
+    public static final int NUM_CHECKOUTS = 3;
+    public static final int NUM_CUSTOMERS = 50;
 
     Checkout[] checkouts;
     List<Customer> customers;
@@ -33,21 +33,14 @@ public class SuperMarket {
         }
     }
 
-
-
+    public Checkout[] getCheckouts() {
+        return checkouts;
+    }
 
     public void startSim() {
         EventSim sim = EventSim.getInstance();
         sim.setup(init);
         sim.run();
-    }
-
-    /**
-     *
-     * @return random Checkout
-     */
-    public Checkout getRandomCheckout() {
-        return checkouts[EventSim.getInstance().getRandom().nextInt(checkouts.length)];
     }
 
     public Checkout getCheckoutByShortestQueue(){
@@ -57,6 +50,9 @@ public class SuperMarket {
                 returnCheckout = checkout;
             }
             else{
+                if(checkout.getCustomerQueue().size()==0){
+                    return checkout;
+                }
                 if(returnCheckout.getCustomerQueue().size()>checkout.getCustomerQueue().size())
                     returnCheckout = checkout;
             }
