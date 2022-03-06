@@ -14,7 +14,7 @@ public class Event_5_LeaveStore extends Event {
 
     @Override
     public Event happen() {
-        checkout.getCustomerQueue().remove(customer);
+        checkout.serveCustomer(customer);
         return null;
     }
 

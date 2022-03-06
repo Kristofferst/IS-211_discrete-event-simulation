@@ -22,10 +22,6 @@ public class EventSim {
     // The "current" time
     int clock;
 
-    public Random getRandom() {
-        return random;
-    }
-
     Random random;
 
 
