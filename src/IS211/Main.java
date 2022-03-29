@@ -5,12 +5,13 @@ import IS211.Supermarket.SuperMarket;
 
 public class Main {
     public static void main(String[] args) {
-        SuperMarket superMarket = new SuperMarket();
+        SuperMarket superMarket = new SuperMarket(3, 50);
         superMarket.startSim();
 
         for(Checkout checkout : superMarket.getCheckouts()){
             System.out.println(checkout + ":");
             System.out.println(checkout.statsAsString());
         }
+
     }
 }

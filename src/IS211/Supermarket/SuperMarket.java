@@ -11,16 +11,12 @@ import java.util.List;
  * @author evenal
  */
 public class SuperMarket {
-
-    public static final int NUM_CHECKOUTS = 3;
-    public static final int NUM_CUSTOMERS = 50;
-
-    Checkout[] checkouts;
-    List<Customer> customers;
-    List<Event> init;
+    private Checkout[] checkouts;
+    private List<Customer> customers;
+    private List<Event> init;
 
 
-    public SuperMarket() {
+    public SuperMarket(int NUM_CHECKOUTS, int NUM_CUSTOMERS) {
         checkouts = new Checkout[NUM_CHECKOUTS];
         for (int i = 0; i < NUM_CHECKOUTS; i++)
             checkouts[i] = new Checkout(this, i);
